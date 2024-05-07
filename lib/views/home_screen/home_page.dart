@@ -1,11 +1,18 @@
-import 'package:flutter/material.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:food_delivery_app/consts/consts.dart';
 import 'package:food_delivery_app/common_widgets/text_styles.dart';
+import 'package:food_delivery_app/consts/dimensions.dart';
 import 'package:food_delivery_app/views/home_screen/components/slider.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  double currentDot = 0.0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +25,7 @@ class HomePage extends StatelessWidget {
             // main Body here
             child: Column(
               children: [
-                10.heightBox,
+                Dimension.heightSize(10).heightBox,
                 // header ======================================================
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -29,12 +36,13 @@ class HomePage extends StatelessWidget {
                         mediumText(
                             text: "Bangladesh",
                             color: AppColors.mainColor,
-                            size: 20.0),
+                            size: Dimension.widthSize(20)),
                         Row(
                           children: [
                             regularText(
                                 text: "Chattogram",
-                                color: AppColors.titleColor),
+                                color: AppColors.titleColor,
+                                size: Dimension.widthSize(14)),
                             const Icon(
                               Icons.arrow_drop_down,
                               color: AppColors.textColor,
@@ -44,39 +52,65 @@ class HomePage extends StatelessWidget {
                       ],
                     ),
                     // icon box
-                    const Icon(
+                    Icon(
                       Icons.search,
                       color: AppColors.whiteColor,
-                      size: 28,
+                      size: Dimension.widthSize(28),
                     )
                         .box
-                        .size(45, 45)
+                        .size(Dimension.widthSize(40), Dimension.heightSize(40))
                         .roundedSM
                         .color(AppColors.mainColor)
                         .makeCentered()
                   ],
                 )
                     .box
-                    .padding(const EdgeInsets.symmetric(horizontal: 14))
+                    .padding(EdgeInsets.symmetric(
+                        horizontal: Dimension.widthSize(14)))
                     .make(),
-                10.heightBox,
+                Dimension.heightSize(10).heightBox,
                 // slider ======================================================
-                Container(
-                  // width: context.screenWidth / 1.2,
-                  height: 300,
-                  child: PageView.builder(
-                      itemCount: 4,
-                      itemBuilder: (context, index) {
-                        return customSlider(
-                            screen_width: context.screenWidth,
-                            foodImage: homeSliderFoodImages[index],
-                            foodName: homeSliderFoodNames[index],
-                            ratings: homeSliderFoodRatings[index],
-                            commentsCount: homeSliderFoodComments[index],
-                            desc: homeSliderFoodDesc[index],
-                            location: homeSliderFoodLocation[index],
-                            time: homeSliderFoodTime[index]);
-                      }),
+                VxSwiper.builder(
+                    height: Dimension.swiperHeight, //260
+                    enlargeCenterPage: true,
+                    // aspectRatio: 16 / 9,
+                    scrollPhysics: const BouncingScrollPhysics(),
+                    enableInfiniteScroll: false,
+                    itemCount: 5,
+                    onPageChanged: (index) {
+                      setState(() {
+                        currentDot = index.toDouble();
+                      });
+                    },
+                    itemBuilder: (context, index) {
+                      return customSlider(
+                              screen_width: context.screenWidth,
+                              foodImage: homeSliderFoodImages[index],
+                              foodName: homeSliderFoodNames[index],
+                              ratings: homeSliderFoodRatings[index],
+                              commentsCount: homeSliderFoodComments[index],
+                              desc: homeSliderFoodDesc[index],
+                              location: homeSliderFoodLocation[index],
+                              time: homeSliderFoodTime[index])
+                          .box
+                          // .color(Colors.blue)
+                          .margin(EdgeInsets.symmetric(
+                              horizontal: Dimension.widthSize(6), vertical: 2))
+                          .make();
+                    }),
+                DotsIndicator(
+                  dotsCount: 5,
+                  position: currentDot,
+                  decorator: DotsDecorator(
+                    activeColor: AppColors.mainColor,
+                    color: AppColors.textColor,
+                    size: Size.square(Dimension.widthSize(8).toDouble()),
+                    activeSize:
+                        Size(Dimension.widthSize(16), Dimension.widthSize(8)),
+                    activeShape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(
+                            Dimension.widthSize(5).toDouble())),
+                  ),
                 )
               ],
             ),
