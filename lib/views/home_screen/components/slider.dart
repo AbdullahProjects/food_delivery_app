@@ -1,7 +1,7 @@
-import 'package:food_delivery_app/common_widgets/home_page_food_row.dart';
 import 'package:food_delivery_app/common_widgets/text_styles.dart';
 import 'package:food_delivery_app/consts/consts.dart';
 import 'package:food_delivery_app/consts/dimensions.dart';
+import 'package:food_delivery_app/views/home_screen/components/home_page_food_row.dart';
 
 Widget customSlider(
     // ignore: non_constant_identifier_names
@@ -60,9 +60,11 @@ Widget customSlider(
                     // food name
                     mediumText(
                         text: "$foodName",
+                        isOverflow: true,
                         color: AppColors.titleColor,
                         size: Dimension.widthSize(20)), // 20
                     // food rating and comments count
+                    Dimension.heightSize(10).widthBox,
                     Row(
                       children: [
                         VxRating(
@@ -75,15 +77,26 @@ Widget customSlider(
                           onRatingUpdate: (value) {},
                         ),
                         Dimension.widthSize(5).widthBox,
-                        regularText(
+                        blackText(
                             text: "$ratings",
-                            color: AppColors.signColor,
+                            color: AppColors.mainColor,
                             size: Dimension.widthSize(14)),
-                        Dimension.widthSize(5).widthBox,
-                        regularText(
-                            text: "$commentsShow comments",
-                            color: AppColors.signColor,
-                            size: Dimension.widthSize(12)),
+                        Dimension.widthSize(10).widthBox,
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.comment,
+                              color: AppColors.textColor,
+                              size: Dimension.widthSize(18),
+                            ),
+                            Dimension.widthSize(5).widthBox,
+                            mediumText(
+                              text: "$commentsShow ",
+                              color: AppColors.signColor,
+                              size: Dimension.widthSize(14),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                     Dimension.heightSize(10).heightBox,
@@ -107,7 +120,7 @@ Widget customSlider(
                   ],
                 )
                     .box
-                    .width(screen_width / 1.6)
+                    .width(screen_width / 1.5)
                     .height(Dimension.swiperFoodInfoHeight) //100
                     .color(AppColors.whiteColor)
                     .padding(EdgeInsets.symmetric(

@@ -28,3 +28,51 @@ const homeSliderFoodDesc = ["Normal", "Medium", "Normal", "Large", "Medium"];
 const homeSliderFoodLocation = ["1.2km", "3km", "13km", "4km", "1.8km"];
 // slider time
 const homeSliderFoodTime = ["20min", "19min", "50min", "34min", "40min"];
+
+// popular food pairing
+const foodImagesList = [
+  ImgFood14,
+  ImgFood1,
+  ImgFood0,
+  ImgFood12,
+  ImgFood11,
+  ImgFood13,
+  ImgFood15
+];
+const foodNamesList = [
+  "Yummy Sweaty",
+  "Crispy Dish",
+  "Spicy Biryani",
+  "Chicken Biryani",
+  "Nugets",
+  "Bread Crums",
+  "Sweat Meat"
+];
+const foodDescList = [
+  "sweaty - crispy - mirchy",
+  "crispy - dish",
+  "biryani - mirchy - foody",
+  "chicken - hen - favourite",
+  "crispy - sweaty - hungry",
+  "crumbing - crisping",
+  "cold - sweat - yummy"
+];
+const foodIcon1List = [
+  "Normal",
+  "Normal",
+  "Medium",
+  "Large",
+  "Xl",
+  "Normal",
+  "Medium"
+];
+const foodIcon2List = ["12km", "34km", "23km", "3km", "45km", "34km", "20km"];
+const foodIcon3List = [
+  "12min",
+  "34min",
+  "25min",
+  "2min",
+  "30min",
+  "20min",
+  "34min"
+];

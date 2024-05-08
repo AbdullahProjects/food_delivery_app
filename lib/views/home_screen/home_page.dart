@@ -1,7 +1,10 @@
 import 'package:dots_indicator/dots_indicator.dart';
+import 'package:flutter/material.dart';
 import 'package:food_delivery_app/consts/consts.dart';
 import 'package:food_delivery_app/common_widgets/text_styles.dart';
 import 'package:food_delivery_app/consts/dimensions.dart';
+import 'package:food_delivery_app/views/home_screen/components/home_page_food_row.dart';
+import 'package:food_delivery_app/views/home_screen/components/popular_food.dart';
 import 'package:food_delivery_app/views/home_screen/components/slider.dart';
 
 class HomePage extends StatefulWidget {
@@ -66,7 +69,7 @@ class _HomePageState extends State<HomePage> {
                 )
                     .box
                     .padding(EdgeInsets.symmetric(
-                        horizontal: Dimension.widthSize(14)))
+                        horizontal: Dimension.widthSize(10)))
                     .make(),
                 Dimension.heightSize(10).heightBox,
                 // slider ======================================================
@@ -93,7 +96,6 @@ class _HomePageState extends State<HomePage> {
                               location: homeSliderFoodLocation[index],
                               time: homeSliderFoodTime[index])
                           .box
-                          // .color(Colors.blue)
                           .margin(EdgeInsets.symmetric(
                               horizontal: Dimension.widthSize(6), vertical: 2))
                           .make();
@@ -111,7 +113,53 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.circular(
                             Dimension.widthSize(5).toDouble())),
                   ),
+                ),
+                Dimension.heightSize(15).heightBox,
+                // popular food pairing ========================================
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    boldText(
+                        text: "Popular",
+                        color: AppColors.mainBlackColor,
+                        size: Dimension.widthSize(20)),
+                    Dimension.widthSize(5).widthBox,
+                    mediumText(
+                            text: ".",
+                            color: AppColors.textColor,
+                            size: Dimension.widthSize(20))
+                        .box
+                        .margin(
+                            EdgeInsets.only(bottom: Dimension.heightSize(3)))
+                        .make(),
+                    Dimension.widthSize(5).widthBox,
+                    mediumText(
+                            text: "Food pairing",
+                            color: AppColors.textColor,
+                            size: Dimension.widthSize(14))
+                        .box
+                        .margin(
+                            EdgeInsets.only(bottom: Dimension.heightSize(3)))
+                        .make(),
+                  ],
                 )
+                    .box
+                    .padding(EdgeInsets.symmetric(
+                        horizontal: Dimension.widthSize(5)))
+                    .make(),
+                Dimension.heightSize(15).heightBox,
+                Column(
+                  children: List.generate(7, (index) {
+                    return popularFoodPairing(
+                        img: foodImagesList[index],
+                        foodName: foodNamesList[index],
+                        foodDesc: foodDescList[index],
+                        foodIcon1_Detail: foodIcon1List[index],
+                        foodIcon2_Detail: foodIcon2List[index],
+                        foodIcon3_Detail: foodIcon3List[index]);
+                  }),
+                ),
+                Dimension.heightSize(20).heightBox
               ],
             ),
           ),
