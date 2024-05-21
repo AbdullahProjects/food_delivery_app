@@ -1,4 +1,6 @@
 // images
+// ignore_for_file: constant_identifier_names
+
 const ImgAboutus = "assets/image/about_us.png";
 const ImgCall = "assets/image/call.png";
 const ImgCashOnDelivery = "assets/image/cash_on_delivery.png";
@@ -15,8 +17,8 @@ const ImgEnglish = "assets/image/english.png";
 const ImgF = "assets/image/f.png";
 const ImgFood0 = "assets/image/food0.png";
 const ImgFood1 = "assets/image/food1.png";
-const ImgFood11 = "assets/image/food11.png";
-const ImgFood12 = "assets/image/food12.png";
+const ImgFood11 = "assets/image/food11.jpg";
+const ImgFood12 = "assets/image/food12.jpg";
 const ImgFood13 = "assets/image/food13.png";
 const ImgFood14 = "assets/image/food14.jpeg";
 const ImgFood15 = "assets/image/food15.jpeg";

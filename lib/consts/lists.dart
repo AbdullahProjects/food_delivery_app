@@ -28,6 +28,14 @@ const homeSliderFoodDesc = ["Normal", "Medium", "Normal", "Large", "Medium"];
 const homeSliderFoodLocation = ["1.2km", "3km", "13km", "4km", "1.8km"];
 // slider time
 const homeSliderFoodTime = ["20min", "19min", "50min", "34min", "40min"];
+// detailed description
+const homeSliderFoodDetailDesc = [
+  "An assortment of fresh sushi, including nigiri, sashimi, and maki rolls. Featuring the finest cuts of fish, crisp vegetables, and perfectly seasoned rice. A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper. Simple yet rich in flavor, it's a delightful dish perfect for any pasta lover.",
+  "A fresh and crunchy salad featuring romaine lettuce, and a sprinkle of Parmesan cheese. Perfect as a side or a light meal.",
+  "A traditional Neapolitan pizza topped with fresh tomatoes, mozzarella cheese, and basil leaves. This pizza is a testament to the beauty of simple ingredients.",
+  "Delicious soft tortillas filled with seasoned ground beef, fresh lettuce, diced tomatoes, shredded cheese, and a dollop of sour cream. A fiesta of flavors in every bite.",
+  "An assortment of fresh sushi, including nigiri, sashimi, and maki rolls. Featuring the finest cuts of fish, crisp vegetables, and perfectly seasoned rice."
+];
 
 // popular food pairing
 const foodImagesList = [
@@ -47,6 +55,16 @@ const foodNamesList = [
   "Nugets",
   "Bread Crums",
   "Sweat Meat"
+];
+const foodRatings = ["2.9", "4.0", "3.0", "5.0", "4.3", "2.0", "1.5"];
+const foodComments = [
+  "12000000",
+  "2300",
+  "1000",
+  "300",
+  "3900",
+  "56000",
+  "120"
 ];
 const foodDescList = [
   "sweaty - crispy - mirchy",
@@ -75,4 +93,13 @@ const foodIcon3List = [
   "30min",
   "20min",
   "34min"
+];
+const foodDetailDescList = [
+  "A vibrant bowl filled with a blend of mixed berries, ripe bananas, and creamy yogurt, topped with crunchy granola, sliced almonds, and fresh fruit. A refreshing and nutritious breakfast option. Decadent chocolate brownie with a gooey, fudgy center and a crispy outer layer. Perfectly paired with a scoop of vanilla ice cream for a sweet treat. Decadent chocolate brownie with a gooey, fudgy center and a crispy outer layer. Perfectly paired with a scoop of vanilla ice cream for a sweet treat.",
+  "A colorful medley of fresh vegetables stir-fried to perfection in a savory soy-ginger sauce. Served hot and steaming, this dish is both healthy and flavorful.",
+  "Decadent chocolate brownie with a gooey, fudgy center and a crispy outer layer. Perfectly paired with a scoop of vanilla ice cream for a sweet treat.",
+  "Freshly baked pizza topped with ripe tomatoes, mozzarella cheese, and aromatic basil leaves. A classic Italian delight that's both simple and delicious.",
+  "Juicy salmon fillet grilled to perfection, served with a zesty lemon-butter sauce. A nutritious and flavorful dish that's perfect for seafood lovers.",
+  "Crisp romaine lettuce tossed with tender grilled chicken, crunchy croutons, Parmesan cheese, and creamy Caesar dressing. A refreshing and satisfying salad option.",
+  "Juicy beef patty topped with melted cheese, crisp lettuce, ripe tomatoes, and tangy pickles, all sandwiched between a soft sesame seed bun. A classic comfort food favorite."
 ];

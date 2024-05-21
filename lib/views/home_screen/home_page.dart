@@ -1,11 +1,9 @@
 import 'package:dots_indicator/dots_indicator.dart';
-import 'package:flutter/material.dart';
+import 'package:food_delivery_app/common_widgets/common_widgets.dart';
 import 'package:food_delivery_app/consts/consts.dart';
-import 'package:food_delivery_app/common_widgets/text_styles.dart';
-import 'package:food_delivery_app/consts/dimensions.dart';
-import 'package:food_delivery_app/views/home_screen/components/home_page_food_row.dart';
 import 'package:food_delivery_app/views/home_screen/components/popular_food.dart';
 import 'package:food_delivery_app/views/home_screen/components/slider.dart';
+import 'package:food_delivery_app/views/home_screen/popular_food_details.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -98,7 +96,18 @@ class _HomePageState extends State<HomePage> {
                           .box
                           .margin(EdgeInsets.symmetric(
                               horizontal: Dimension.widthSize(6), vertical: 2))
-                          .make();
+                          .make()
+                          .onTap(() {
+                        Get.to(() => PopularFoodDetails(
+                            homeSliderFoodImages[index],
+                            homeSliderFoodNames[index],
+                            homeSliderFoodRatings[index],
+                            homeSliderFoodComments[index],
+                            homeSliderFoodDesc[index],
+                            homeSliderFoodLocation[index],
+                            homeSliderFoodDetailDesc[index],
+                            homeSliderFoodTime[index]));
+                      });
                     }),
                 DotsIndicator(
                   dotsCount: 5,
@@ -151,12 +160,26 @@ class _HomePageState extends State<HomePage> {
                 Column(
                   children: List.generate(7, (index) {
                     return popularFoodPairing(
-                        img: foodImagesList[index],
-                        foodName: foodNamesList[index],
-                        foodDesc: foodDescList[index],
-                        foodIcon1_Detail: foodIcon1List[index],
-                        foodIcon2_Detail: foodIcon2List[index],
-                        foodIcon3_Detail: foodIcon3List[index]);
+                            img: foodImagesList[index],
+                            foodName: foodNamesList[index],
+                            foodDesc: foodDescList[index],
+                            foodIcon1_Detail: foodIcon1List[index],
+                            foodIcon2_Detail: foodIcon2List[index],
+                            foodIcon3_Detail: foodIcon3List[index])
+                        .onTap(() {
+                      Get.to(
+                        () => PopularFoodDetails(
+                          foodImagesList[index],
+                          foodNamesList[index],
+                          foodRatings[index],
+                          foodComments[index],
+                          foodIcon1List[index],
+                          foodIcon2List[index],
+                          foodDetailDescList[index],
+                          foodIcon3List[index],
+                        ),
+                      );
+                    });
                   }),
                 ),
                 Dimension.heightSize(20).heightBox

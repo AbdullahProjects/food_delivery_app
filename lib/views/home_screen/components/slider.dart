@@ -1,6 +1,6 @@
-import 'package:food_delivery_app/common_widgets/text_styles.dart';
+import 'package:food_delivery_app/common_widgets/common_widgets.dart';
+import 'package:food_delivery_app/views/home_screen/components/handle_comments.dart';
 import 'package:food_delivery_app/consts/consts.dart';
-import 'package:food_delivery_app/consts/dimensions.dart';
 import 'package:food_delivery_app/views/home_screen/components/home_page_food_row.dart';
 
 Widget customSlider(
@@ -13,23 +13,6 @@ Widget customSlider(
     desc,
     location,
     time}) {
-  // handle comments
-  var commentInt = int.parse(commentsCount);
-  String commentsShow = '';
-  if (commentInt >= 1000000) {
-    commentsShow =
-        "${commentInt.toString().substring(0, 1)}${commentInt.toString().substring(1, 2)}Lac+";
-  } else if (commentInt >= 100000) {
-    commentsShow =
-        "${commentInt.toString().substring(0, 1)}.${commentInt.toString().substring(1, 2)}Lac+";
-  } else if (commentInt >= 10000) {
-    commentsShow =
-        "${commentInt.toString().substring(0, 1)}${commentInt.toString().substring(1, 2)}K+";
-  } else if (commentInt >= 1000) {
-    commentsShow = "${commentInt.toString().substring(0, 1)}K+";
-  } else {
-    commentsShow = "$commentInt ";
-  }
 
   return SingleChildScrollView(
     scrollDirection: Axis.vertical,
@@ -91,7 +74,7 @@ Widget customSlider(
                             ),
                             Dimension.widthSize(5).widthBox,
                             mediumText(
-                              text: "$commentsShow ",
+                              text: roundedComment(commentsCount: commentsCount),
                               color: AppColors.signColor,
                               size: Dimension.widthSize(14),
                             ),

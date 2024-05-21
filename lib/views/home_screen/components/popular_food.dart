@@ -1,6 +1,5 @@
-import 'package:food_delivery_app/common_widgets/text_styles.dart';
+import 'package:food_delivery_app/common_widgets/common_widgets.dart';
 import 'package:food_delivery_app/consts/consts.dart';
-import 'package:food_delivery_app/consts/dimensions.dart';
 import 'package:food_delivery_app/views/home_screen/components/home_page_food_row.dart';
 
 Widget popularFoodPairing({img, foodName, foodDesc, foodIcon1_Detail, foodIcon2_Detail, foodIcon3_Detail}) {
@@ -17,7 +16,6 @@ Widget popularFoodPairing({img, foodName, foodDesc, foodIcon1_Detail, foodIcon2_
           .roundedSM
           .clip(Clip.antiAlias)
           .make(),
-      // Dimension.widthSize(5).widthBox,
       Container(
           width: Dimension.screenWidth - (Dimension.screenWidth / 2.34),
           height: Dimension.heightSize(90),
@@ -85,7 +83,6 @@ Widget popularFoodPairing({img, foodName, foodDesc, foodIcon1_Detail, foodIcon2_
       .box
       .height(Dimension.heightSize(130))
       .width(Dimension.screenWidth)
-      // .color(Colors.blue)
       .margin(EdgeInsets.only(
           left: Dimension.widthSize(6), bottom: Dimension.widthSize(10)))
       .make();
